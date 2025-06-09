@@ -3,6 +3,9 @@ import morgan from "morgan";
 
 import employeesRoutes from "./routes/employees.routes.js";
 import indexRoutes from "./routes/index.routes.js";
+import clientsRoutes from "./routes/clients.routes.js";
+
+
 
 const app = express();
 
@@ -11,6 +14,7 @@ app.use(morgan("dev"));
 app.use(express.json());
 
 // Routes
+app.use("/api", clientsRoutes);
 app.use("/", indexRoutes);
 app.use("/api", employeesRoutes);
 
